@@ -1,5 +1,5 @@
 
-import { Briefcase, Calendar } from "lucide-react";
+import { Briefcase, Calendar, MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 const Experience = () => {
