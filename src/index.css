@@ -85,6 +85,7 @@
 
   body {
     @apply bg-background text-foreground font-sans;
+    scroll-behavior: smooth;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -103,7 +104,7 @@
   }
   
   .skill-tag {
-    @apply bg-portfolioBlue bg-opacity-10 text-portfolioBlue px-3 py-1 rounded-full text-sm font-medium;
+    @apply bg-portfolioBlue bg-opacity-10 text-portfolioBlue px-3 py-1 rounded-full text-sm font-medium hover:bg-portfolioBlue hover:text-white transition-colors duration-300;
   }
   
   .experience-card {
@@ -113,4 +114,31 @@
   .project-card {
     @apply bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1;
   }
+  
+  .glass-card {
+    @apply bg-white backdrop-blur-sm bg-opacity-80 rounded-lg p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300;
+  }
+
+  .highlight-text {
+    @apply text-portfolioBlue font-medium;
+  }
+  
+  .contact-link {
+    @apply flex items-center gap-2 text-gray-700 hover:text-portfolioBlue transition-colors transform hover:translate-x-1 duration-200;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-portfolioBlue to-portfolioBlue-light text-transparent bg-clip-text;
+  }
+}
+
+/* Additional animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
