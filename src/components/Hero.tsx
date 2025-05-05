@@ -2,6 +2,7 @@
 import { ArrowDown, Github, Linkedin, Mail, Phone, MapPin, Sparkle, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CreativeHeroBackground, ParallaxEffect } from "./DecorativeElements";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Hero = () => {
   return (
@@ -13,12 +14,12 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           <div className="md:col-span-7 animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-portfolioBlue-light to-purple-400 text-white rounded-full mb-4 shadow-md">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-400 to-portfolioBlue text-white rounded-full mb-4 shadow-md">
               <Sparkle size={18} className="text-white" />
               <span className="font-medium">Software Developer</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-              Ramya Shravani <span className="bg-gradient-to-r from-portfolioBlue to-purple-500 bg-clip-text text-transparent">Dasiga</span>
+              Ramya Shravani <span className="bg-gradient-to-r from-purple-600 to-portfolioBlue bg-clip-text text-transparent">Dasiga</span>
             </h1>
             <p className="text-gray-700 mb-8 max-w-lg text-lg leading-relaxed">
               Experienced software developer with expertise in C#, ASP.NET, and web technologies. 
@@ -65,12 +66,12 @@ const Hero = () => {
             </div>
             
             <div className="flex flex-wrap gap-4">
-              <Button className="bg-gradient-to-r from-portfolioBlue to-purple-600 hover:shadow-lg hover:shadow-portfolioBlue/20 text-white transition-all">
+              <Button className="bg-gradient-to-r from-purple-600 to-portfolioBlue hover:shadow-lg hover:shadow-purple-500/20 text-white transition-all">
                 <a href="#experience" className="flex items-center gap-2">
                   View My Work <ArrowDown size={16} />
                 </a>
               </Button>
-              <Button variant="outline" className="border-portfolioBlue text-portfolioBlue hover:bg-portfolioBlue hover:text-white transition-all">
+              <Button variant="outline" className="border-purple-500 text-purple-600 hover:bg-purple-600 hover:text-white transition-all">
                 <a href="#youtube" className="flex items-center gap-2">
                   <Youtube size={16} /> My YouTube Channel
                 </a>
@@ -80,22 +81,24 @@ const Hero = () => {
           
           <div className="md:col-span-5 flex justify-center animate-fade-in opacity-0" style={{ animationDelay: '0.4s' }}>
             <div className="relative animate-float">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-portfolioBlue-light opacity-20 rounded-full blur-md"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-portfolioBlue opacity-20 rounded-full blur-md"></div>
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-purple-500 to-portfolioBlue p-1 shadow-xl">
                 <div className="absolute inset-1 rounded-full bg-white flex items-center justify-center overflow-hidden">
-                  <div className="relative flex items-center justify-center">
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-portfolioBlue/10 animate-pulse"></div>
-                    <span className="text-transparent bg-gradient-to-r from-portfolioBlue to-purple-500 bg-clip-text text-7xl font-bold relative z-10">RS</span>
-                  </div>
+                  <Avatar className="w-full h-full">
+                    <AvatarImage src="/lovable-uploads/a0e96d51-a83a-4940-a633-2655f1561f35.png" alt="Ramya Shravani Dasiga" className="object-cover" />
+                    <AvatarFallback className="bg-gradient-to-r from-portfolioBlue to-purple-500">
+                      <span className="text-7xl font-bold text-white">RS</span>
+                    </AvatarFallback>
+                  </Avatar>
                 </div>
               </div>
               
               {/* Decorative elements */}
-              <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-pink-300 bg-opacity-20 rounded-full"></div>
+              <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-purple-300 bg-opacity-20 rounded-full"></div>
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-portfolioBlue bg-opacity-20 rounded-full"></div>
               
               {/* Code symbols */}
-              <div className="absolute -top-8 right-10 text-portfolioBlue opacity-30 text-xl font-mono">&lt;/&gt;</div>
+              <div className="absolute -top-8 right-10 text-purple-500 opacity-30 text-xl font-mono">&lt;/&gt;</div>
               <div className="absolute bottom-0 left-5 text-purple-500 opacity-30 text-xl font-mono">{`{ }`}</div>
             </div>
           </div>
@@ -108,7 +111,7 @@ const Hero = () => {
           className="animate-bounce p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-shadow"
           aria-label="Scroll down to experience section"
         >
-          <ArrowDown size={24} className="text-portfolioBlue" />
+          <ArrowDown size={24} className="text-purple-500" />
         </a>
       </div>
     </section>
