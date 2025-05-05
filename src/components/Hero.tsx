@@ -1,14 +1,14 @@
 
 import { ArrowDown, Github, Linkedin, Mail, Phone, MapPin, Sparkle, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CreativeHeroBackground, ParallaxEffect } from "./DecorativeElements";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[90vh] flex flex-col justify-center bg-gradient-to-br from-purple-50 via-white to-blue-50 overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute top-20 right-20 w-64 h-64 bg-purple-400 opacity-5 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 left-10 w-40 h-40 bg-blue-400 opacity-5 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute top-40 left-20 w-32 h-32 bg-pink-400 opacity-5 rounded-full blur-3xl animate-pulse"></div>
+    <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden">
+      {/* Creative background elements */}
+      <CreativeHeroBackground />
+      <ParallaxEffect />
       
       <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
@@ -17,7 +17,7 @@ const Hero = () => {
               <Sparkle size={18} className="text-white" />
               <span className="font-medium">Software Developer</span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-900 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
               Ramya Shravani <span className="bg-gradient-to-r from-portfolioBlue to-purple-500 bg-clip-text text-transparent">Dasiga</span>
             </h1>
             <p className="text-gray-700 mb-8 max-w-lg text-lg leading-relaxed">
@@ -81,13 +81,22 @@ const Hero = () => {
           <div className="md:col-span-5 flex justify-center animate-fade-in opacity-0" style={{ animationDelay: '0.4s' }}>
             <div className="relative animate-float">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-portfolioBlue-light opacity-20 rounded-full blur-md"></div>
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-purple-500 to-portfolioBlue p-1">
+              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-purple-500 to-portfolioBlue p-1 shadow-xl">
                 <div className="absolute inset-1 rounded-full bg-white flex items-center justify-center overflow-hidden">
-                  <span className="text-transparent bg-gradient-to-r from-portfolioBlue to-purple-500 bg-clip-text text-7xl font-bold">RS</span>
+                  <div className="relative flex items-center justify-center">
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-portfolioBlue/10 animate-pulse"></div>
+                    <span className="text-transparent bg-gradient-to-r from-portfolioBlue to-purple-500 bg-clip-text text-7xl font-bold relative z-10">RS</span>
+                  </div>
                 </div>
               </div>
+              
+              {/* Decorative elements */}
               <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-pink-300 bg-opacity-20 rounded-full"></div>
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-portfolioBlue bg-opacity-20 rounded-full"></div>
+              
+              {/* Code symbols */}
+              <div className="absolute -top-8 right-10 text-portfolioBlue opacity-30 text-xl font-mono">&lt;/&gt;</div>
+              <div className="absolute bottom-0 left-5 text-purple-500 opacity-30 text-xl font-mono">{`{ }`}</div>
             </div>
           </div>
         </div>

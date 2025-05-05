@@ -1,18 +1,28 @@
 
 import { Briefcase, Calendar, MapPin, Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { CircleGrid } from "./DecorativeElements";
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 bg-gradient-to-b from-white via-purple-50 to-white">
-      <div className="container mx-auto px-4">
+    <section id="experience" className="py-20 bg-gradient-to-b from-white via-purple-50 to-white relative">
+      {/* Decorative elements */}
+      <CircleGrid />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <h2 className="section-title mb-8 relative">
           Professional Experience
           <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-purple-500 rounded-full"></div>
         </h2>
         
         <div className="max-w-4xl mx-auto mt-12">
-          <div className="glass-card animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
+          {/* Experience timeline line */}
+          <div className="absolute left-[50%] md:left-8 w-px h-full bg-gradient-to-b from-portfolioBlue via-purple-400 to-transparent rounded-full hidden md:block"></div>
+          
+          <div className="glass-card animate-fade-in opacity-0 relative" style={{ animationDelay: '0.2s' }}>
+            {/* Company logo abstraction */}
+            <div className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-br from-portfolioBlue/30 to-purple-400/30 rounded-xl blur-lg"></div>
+            
             <div className="flex flex-wrap justify-between items-start mb-4">
               <div>
                 <h3 className="text-xl font-bold text-gray-800">Software Developer I</h3>
@@ -34,9 +44,14 @@ const Experience = () => {
             
             <ul className="mt-6 space-y-4 text-gray-700">
               {experienceItems.map((item, index) => (
-                <li key={index} className="flex items-start gap-2 transform hover:translate-x-1 transition-transform duration-300">
-                  <Star size={16} className="text-purple-400 mt-1 flex-shrink-0" />
-                  <span>{item}</span>
+                <li 
+                  key={index} 
+                  className="flex items-start gap-2 transform hover:translate-x-1 transition-transform duration-300 group"
+                >
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-portfolioBlue/20 to-purple-400/20 flex items-center justify-center group-hover:from-portfolioBlue group-hover:to-purple-400 transition-colors">
+                    <Star size={12} className="text-purple-400 group-hover:text-white transition-colors" />
+                  </div>
+                  <span className="group-hover:text-portfolioBlue transition-colors">{item}</span>
                 </li>
               ))}
             </ul>

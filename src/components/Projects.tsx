@@ -2,6 +2,7 @@
 import { ExternalLink, Github, Rocket, Star, Code, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { FloatingShapes } from "./DecorativeElements";
 
 interface ProjectProps {
   title: string;
@@ -16,15 +17,15 @@ interface ProjectProps {
 }
 
 const Project = ({ title, description, link, github, technologies, delay, icon, gradientFrom = "from-portfolioBlue", gradientTo = "to-purple-500" }: ProjectProps) => (
-  <Card className="animate-fade-in opacity-0 bg-white hover:shadow-xl transition-all duration-300 group overflow-hidden border border-gray-100" style={{ animationDelay: delay }}>
-    <div className="absolute -right-10 -top-10 w-20 h-20 bg-portfolioBlue bg-opacity-10 rounded-full group-hover:scale-150 transition-all duration-500"></div>
+  <Card className="animate-fade-in opacity-0 bg-white hover:shadow-xl transition-all duration-300 group overflow-hidden border border-gray-100 relative" style={{ animationDelay: delay }}>
+    <div className="absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-br from-portfolioBlue/10 to-purple-400/10 rounded-full group-hover:scale-150 transition-all duration-500"></div>
     
-    <CardHeader className="relative">
+    <CardHeader className="relative z-10">
       <div className="flex items-center gap-3">
-        <div className={`p-2 rounded-md bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white`}>
+        <div className={`p-2 rounded-md bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md group-hover:shadow-lg transition-shadow`}>
           {icon}
         </div>
-        <CardTitle className="text-xl bg-gradient-to-r from-portfolioBlue to-purple-500 bg-clip-text text-transparent">{title}</CardTitle>
+        <CardTitle className="text-xl bg-gradient-to-r from-portfolioBlue to-purple-500 bg-clip-text text-transparent group-hover:scale-105 transform transition-transform origin-left">{title}</CardTitle>
       </div>
     </CardHeader>
     
@@ -32,7 +33,13 @@ const Project = ({ title, description, link, github, technologies, delay, icon, 
       <CardDescription className="text-gray-700 mb-4 text-sm">{description}</CardDescription>
       <div className="flex flex-wrap gap-2 mb-4">
         {technologies.map((tech) => (
-          <span key={tech} className={`bg-gradient-to-r ${gradientFrom} ${gradientTo} bg-opacity-10 text-gray-700 px-3 py-1 rounded-full text-xs font-medium hover:text-white hover:shadow-md transition-all duration-300`}>{tech}</span>
+          <span 
+            key={tech} 
+            className={`bg-gradient-to-r ${gradientFrom} ${gradientTo} bg-opacity-10 text-gray-700 px-3 py-1 rounded-full text-xs font-medium hover:text-white hover:shadow-md transition-all duration-300 group-hover:translate-y-0 translate-y-0 hover:bg-portfolioBlue`}
+            style={{ transitionDelay: `${Math.random() * 0.5}s` }}
+          >
+            {tech}
+          </span>
         ))}
       </div>
     </CardContent>
@@ -73,8 +80,11 @@ const Project = ({ title, description, link, github, technologies, delay, icon, 
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-white via-purple-50 to-white">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="py-20 bg-gradient-to-b from-white via-purple-50 to-white relative overflow-hidden">
+      {/* Decorative shapes */}
+      <FloatingShapes />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <h2 className="section-title mb-8 relative">
           Projects
           <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-purple-500 rounded-full"></div>
