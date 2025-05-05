@@ -14,13 +14,14 @@ const Navbar = () => {
     { name: "Experience", href: "#experience" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
+    { name: "YouTube", href: "#youtube" },
     { name: "Achievements", href: "#achievements" },
   ];
   
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="font-heading text-xl font-bold text-portfolioBlue">
+        <Link to="/" className="font-heading text-xl font-bold bg-gradient-to-r from-portfolioBlue to-purple-500 bg-clip-text text-transparent">
           Ramya Shravani
         </Link>
         
@@ -29,9 +30,10 @@ const Navbar = () => {
             <a 
               key={item.name}
               href={item.href}
-              className="text-gray-700 hover:text-portfolioBlue transition-colors"
+              className="text-gray-700 hover:text-portfolioBlue relative group transition-colors"
             >
               {item.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-portfolioBlue to-purple-500 group-hover:w-full transition-all duration-300"></span>
             </a>
           ))}
         </div>
@@ -53,7 +55,7 @@ const Navbar = () => {
             <a
               key={item.name}
               href={item.href}
-              className="text-xl text-gray-700 hover:text-portfolioBlue transition-colors"
+              className="text-xl bg-gradient-to-r from-portfolioBlue to-purple-500 bg-clip-text text-transparent hover:scale-105 transition-transform"
               onClick={() => setIsMenuOpen(false)}
             >
               {item.name}

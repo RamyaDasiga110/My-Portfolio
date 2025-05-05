@@ -1,5 +1,5 @@
 
-import { ExternalLink, Github, Rocket, Star, Code } from "lucide-react";
+import { ExternalLink, Github, Rocket, Star, Code, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -11,18 +11,20 @@ interface ProjectProps {
   technologies: string[];
   delay: string;
   icon: React.ReactNode;
+  gradientFrom?: string;
+  gradientTo?: string;
 }
 
-const Project = ({ title, description, link, github, technologies, delay, icon }: ProjectProps) => (
+const Project = ({ title, description, link, github, technologies, delay, icon, gradientFrom = "from-portfolioBlue", gradientTo = "to-purple-500" }: ProjectProps) => (
   <Card className="animate-fade-in opacity-0 bg-white hover:shadow-xl transition-all duration-300 group overflow-hidden border border-gray-100" style={{ animationDelay: delay }}>
     <div className="absolute -right-10 -top-10 w-20 h-20 bg-portfolioBlue bg-opacity-10 rounded-full group-hover:scale-150 transition-all duration-500"></div>
     
     <CardHeader className="relative">
       <div className="flex items-center gap-3">
-        <div className="p-2 rounded-md bg-portfolioBlue bg-opacity-10 text-portfolioBlue">
+        <div className={`p-2 rounded-md bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white`}>
           {icon}
         </div>
-        <CardTitle className="text-xl gradient-text">{title}</CardTitle>
+        <CardTitle className="text-xl bg-gradient-to-r from-portfolioBlue to-purple-500 bg-clip-text text-transparent">{title}</CardTitle>
       </div>
     </CardHeader>
     
@@ -30,7 +32,7 @@ const Project = ({ title, description, link, github, technologies, delay, icon }
       <CardDescription className="text-gray-700 mb-4 text-sm">{description}</CardDescription>
       <div className="flex flex-wrap gap-2 mb-4">
         {technologies.map((tech) => (
-          <span key={tech} className="skill-tag text-xs">{tech}</span>
+          <span key={tech} className={`bg-gradient-to-r ${gradientFrom} ${gradientTo} bg-opacity-10 text-gray-700 px-3 py-1 rounded-full text-xs font-medium hover:text-white hover:shadow-md transition-all duration-300`}>{tech}</span>
         ))}
       </div>
     </CardContent>
@@ -40,7 +42,7 @@ const Project = ({ title, description, link, github, technologies, delay, icon }
         <Button 
           variant="outline" 
           size="sm" 
-          className="border-portfolioBlue text-portfolioBlue hover:bg-portfolioBlue hover:text-white group"
+          className={`border-portfolioBlue text-portfolioBlue hover:bg-gradient-to-r ${gradientFrom} ${gradientTo} hover:text-white group`}
         >
           <a 
             href={link} 
@@ -71,11 +73,11 @@ const Project = ({ title, description, link, github, technologies, delay, icon }
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-white to-portfolioGray-light">
+    <section id="projects" className="py-20 bg-gradient-to-b from-white via-purple-50 to-white">
       <div className="container mx-auto px-4">
         <h2 className="section-title mb-8 relative">
           Projects
-          <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-portfolioBlue-light rounded-full"></div>
+          <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-purple-500 rounded-full"></div>
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
@@ -86,6 +88,8 @@ const Projects = () => {
             technologies={["NextJS", "TypeScript", "Weather API", "Responsive Design"]}
             delay="0.2s"
             icon={<Rocket size={20} />}
+            gradientFrom="from-blue-500"
+            gradientTo="to-cyan-400"
           />
           
           <Project 
@@ -94,6 +98,8 @@ const Projects = () => {
             technologies={["C#", "Cryptography", "SALT Algorithm", "Security"]}
             delay="0.3s"
             icon={<Star size={20} />}
+            gradientFrom="from-purple-500"
+            gradientTo="to-pink-400"
           />
           
           <Project 
@@ -102,6 +108,30 @@ const Projects = () => {
             technologies={["SQL", "Database Management", "Audit", "Compliance"]}
             delay="0.4s"
             icon={<Code size={20} />}
+            gradientFrom="from-portfolioBlue"
+            gradientTo="to-blue-400"
+          />
+          
+          <Project 
+            title="Mapecontrol Website" 
+            description="Redesigned and updated company website with modern layout, responsive design, and performance optimization."
+            link="https://www.mapecontrol.it"
+            technologies={["WordPress", "Web Design", "Responsive UI", "SEO"]}
+            delay="0.5s"
+            icon={<Globe size={20} />}
+            gradientFrom="from-green-500"
+            gradientTo="to-teal-400"
+          />
+          
+          <Project 
+            title="Esploriamoitalia Website" 
+            description="Improved user experience through a modern layout, responsive design, and performance optimization for a travel company."
+            link="https://www.esploriamoitalia.com"
+            technologies={["WordPress", "Web Design", "Responsive UI", "SEO"]}
+            delay="0.6s"
+            icon={<Globe size={20} />}
+            gradientFrom="from-amber-500"
+            gradientTo="to-orange-400"
           />
         </div>
       </div>

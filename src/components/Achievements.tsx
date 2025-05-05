@@ -9,13 +9,24 @@ interface AchievementProps {
   description?: string;
   link?: string;
   delay: string;
+  gradientFrom?: string;
+  gradientTo?: string;
 }
 
-const Achievement = ({ title, organization, year, description, link, delay }: AchievementProps) => (
-  <Card className="animate-fade-in opacity-0" style={{ animationDelay: delay }}>
+const Achievement = ({ 
+  title, 
+  organization, 
+  year, 
+  description, 
+  link, 
+  delay,
+  gradientFrom = "from-portfolioBlue",
+  gradientTo = "to-purple-500"
+}: AchievementProps) => (
+  <Card className="animate-fade-in opacity-0 hover:shadow-lg transition-all duration-300 group" style={{ animationDelay: delay }}>
     <CardHeader className="pb-2">
       <div className="flex justify-between items-start">
-        <CardTitle className="text-lg text-portfolioBlue">{title}</CardTitle>
+        <CardTitle className={`text-lg bg-gradient-to-r ${gradientFrom} ${gradientTo} bg-clip-text text-transparent`}>{title}</CardTitle>
         <span className="text-sm font-medium text-gray-500">{year}</span>
       </div>
       <CardDescription className="text-gray-700">{organization}</CardDescription>
@@ -31,9 +42,9 @@ const Achievement = ({ title, organization, year, description, link, delay }: Ac
           href={link} 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="text-sm flex items-center gap-1 text-portfolioBlue hover:underline"
+          className={`text-sm flex items-center gap-1 bg-gradient-to-r ${gradientFrom} ${gradientTo} bg-clip-text text-transparent hover:underline group`}
         >
-          <ExternalLink size={14} /> View Certificate
+          <ExternalLink size={14} className="text-gray-400 group-hover:rotate-12 transition-transform" /> View Certificate
         </a>
       </CardFooter>
     )}
@@ -42,9 +53,12 @@ const Achievement = ({ title, organization, year, description, link, delay }: Ac
 
 const Achievements = () => {
   return (
-    <section id="achievements" className="py-20 bg-white">
+    <section id="achievements" className="py-20 bg-gradient-to-r from-white via-blue-50 to-white">
       <div className="container mx-auto px-4">
-        <h2 className="section-title">Achievements & Certifications</h2>
+        <h2 className="section-title">
+          Achievements & Certifications
+          <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-purple-500 rounded-full"></div>
+        </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
           <Achievement 
@@ -54,22 +68,38 @@ const Achievements = () => {
             description="Gained hands-on expertise in building full-stack applications using MongoDB, ExpressJS, ReactJS, and NodeJS"
             link="https://www.udemy.com/certificate/UC-a92af406-78c2-4fa7-b013-b22f6e853c91/"
             delay="0.2s"
+            gradientFrom="from-purple-500"
+            gradientTo="to-pink-500"
           />
           
           <Achievement 
-            title="Exceptional Performance award in Code Vipassana Season 5"
-            organization="Google Developers Group, Cloud Kochi"
-            year="2024"
-            description="Duet AI Challenge"
+            title="Code Vipassana Season 9"
+            organization="Google Developers Group"
+            year="2025"
+            description="Exceptional Performance award - Agentic Apps with Cloud Databases, Serverless and Open Source Integrations"
             delay="0.3s"
+            gradientFrom="from-blue-500"
+            gradientTo="to-indigo-500"
           />
           
           <Achievement 
-            title="Exceptional Performance award in Code Vipassana Season 6"
+            title="Code Vipassana Season 6"
             organization="Google Developers Group"
             year="2024"
-            description="Data to AI with Gemini and Gemma"
+            description="Exceptional Performance award - Data to AI with Gemini and Gemma"
             delay="0.4s"
+            gradientFrom="from-green-500"
+            gradientTo="to-emerald-500"
+          />
+          
+          <Achievement 
+            title="Code Vipassana Season 5"
+            organization="Google Developers Group, Cloud Kochi"
+            year="2024"
+            description="Exceptional Performance award - Duet AI Challenge"
+            delay="0.5s"
+            gradientFrom="from-amber-500"
+            gradientTo="to-yellow-500"
           />
           
           <Achievement 
@@ -77,7 +107,9 @@ const Achievements = () => {
             organization="Google"
             year="2019"
             description="Core Infrastructure certification"
-            delay="0.5s"
+            delay="0.6s"
+            gradientFrom="from-red-500"
+            gradientTo="to-orange-500"
           />
           
           <Achievement 
@@ -85,15 +117,9 @@ const Achievements = () => {
             organization="Google"
             year="2018"
             description="Explore ML Beginner certification"
-            delay="0.6s"
-          />
-          
-          <Achievement 
-            title="Event Coordination"
-            organization="Various"
-            year="2016-2020"
-            description="Successfully coordinated five technical events with 500+ participants"
             delay="0.7s"
+            gradientFrom="from-teal-500"
+            gradientTo="to-cyan-500"
           />
         </div>
       </div>

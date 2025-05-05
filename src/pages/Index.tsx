@@ -6,6 +6,7 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Education from "@/components/Education";
 import Achievements from "@/components/Achievements";
+import YouTube from "@/components/YouTube";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -17,6 +18,7 @@ const Index = () => {
       <Skills />
       <Projects />
       <Education />
+      <YouTube />
       <Achievements />
       <Footer />
     </div>

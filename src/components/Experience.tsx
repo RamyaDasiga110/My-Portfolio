@@ -4,15 +4,15 @@ import { Badge } from "@/components/ui/badge";
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 bg-gradient-to-b from-white to-portfolioGray-light">
+    <section id="experience" className="py-20 bg-gradient-to-b from-white via-purple-50 to-white">
       <div className="container mx-auto px-4">
         <h2 className="section-title mb-8 relative">
           Professional Experience
-          <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-portfolioBlue-light rounded-full"></div>
+          <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-purple-500 rounded-full"></div>
         </h2>
         
         <div className="max-w-4xl mx-auto mt-12">
-          <div className="experience-card glass-card animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
+          <div className="glass-card animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
             <div className="flex flex-wrap justify-between items-start mb-4">
               <div>
                 <h3 className="text-xl font-bold text-gray-800">Software Developer I</h3>
@@ -22,7 +22,7 @@ const Experience = () => {
                 </div>
               </div>
               <div>
-                <Badge className="bg-gradient-to-r from-portfolioBlue to-portfolioBlue-light text-white font-medium">
+                <Badge className="bg-gradient-to-r from-portfolioBlue to-purple-500 text-white font-medium">
                   May 2021 - Dec 2023
                 </Badge>
                 <div className="flex items-center gap-1 text-gray-600 mt-1">
@@ -35,7 +35,7 @@ const Experience = () => {
             <ul className="mt-6 space-y-4 text-gray-700">
               {experienceItems.map((item, index) => (
                 <li key={index} className="flex items-start gap-2 transform hover:translate-x-1 transition-transform duration-300">
-                  <Star size={16} className="text-portfolioBlue-light mt-1 flex-shrink-0" />
+                  <Star size={16} className="text-purple-400 mt-1 flex-shrink-0" />
                   <span>{item}</span>
                 </li>
               ))}
