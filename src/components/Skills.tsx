@@ -1,5 +1,5 @@
 
-import { Database, Code, Server, Terminal, Layers, Rocket, Globe, FileText } from "lucide-react";
+import { Code, Terminal } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { DiagonalLines } from "./DecorativeElements";
 
@@ -33,7 +33,7 @@ const SkillCategory = ({
         {skills.map((skill, index) => (
           <span 
             key={skill} 
-            className={`bg-gradient-to-r ${gradientFrom} ${gradientTo} bg-opacity-10 text-gray-700 px-3 py-1 rounded-full text-sm font-medium hover:text-white hover:shadow-md transition-all duration-300 transform hover:scale-105 hover:bg-portfolioBlue`} 
+            className="bg-white bg-opacity-80 text-gray-800 border border-purple-200 px-3 py-1 rounded-full text-sm font-medium hover:text-white hover:shadow-md transition-all duration-300 transform hover:scale-105 hover:bg-portfolioBlue"
             style={{ transitionDelay: `${index * 50}ms` }}
           >
             {skill}
@@ -57,7 +57,7 @@ const Skills = () => {
   ];
   
   return (
-    <section id="skills" className="py-20 bg-gradient-to-r from-white via-blue-50 to-white relative overflow-hidden">
+    <section id="skills" className="py-20 bg-gradient-to-r from-white via-purple-50 to-white relative overflow-hidden">
       {/* Decorative spheres */}
       <div className="absolute top-10 right-10 w-40 h-40 rounded-full bg-blue-500 opacity-5 blur-3xl"></div>
       <div className="absolute bottom-10 left-10 w-60 h-60 rounded-full bg-purple-500 opacity-5 blur-3xl"></div>
