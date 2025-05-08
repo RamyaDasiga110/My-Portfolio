@@ -12,7 +12,7 @@ const Contact = () => {
       <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-400 opacity-5 rounded-full blur-3xl"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="section-title mb-8 relative">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800 relative inline-block">
           Get In Touch
           <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-purple-500 to-portfolioBlue rounded-full"></div>
         </h2>
@@ -21,12 +21,12 @@ const Contact = () => {
           <div className="bg-gradient-to-br from-purple-500 to-portfolioBlue p-[2px] rounded-lg animate-fade-in opacity-0" style={{ animationDelay: '0.4s' }}>
             <div className="bg-white p-6 rounded-lg h-full">
               <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-purple-500 to-portfolioBlue bg-clip-text text-transparent flex items-center gap-2">
-                <MessageSquare className="text-purple-500" size={20} /> Let's Connect
+                <MessageSquare className="text-purple-500" size={20} /> Professional Inquiries
               </h3>
               
               <div className="space-y-6">
                 <p className="text-gray-700">
-                  I'm currently open to new opportunities in software development. Whether you have a question or just want to say hi, I'll do my best to get back to you!
+                  I am currently available for new opportunities in software development. If you're interested in discussing potential collaborations or have any questions about my work, please don't hesitate to reach out.
                 </p>
                 
                 <div className="flex items-center gap-2 text-gray-700">
@@ -38,7 +38,7 @@ const Contact = () => {
                 
                 <div className="pt-4 border-t border-gray-100">
                   <p className="text-gray-600 italic">
-                    "Coding is not just about making things work, it's about crafting solutions that inspire."
+                    "Combining technical expertise with creative problem-solving to deliver elegant solutions."
                   </p>
                 </div>
               </div>
