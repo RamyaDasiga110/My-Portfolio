@@ -78,8 +78,8 @@ const Skills = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800 relative inline-block">
-          Technical Skills
-          <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-portfolioBlue-light rounded-full"></div>
+          <span className="relative z-10">Technical Skills</span>
+          <div className="absolute -bottom-2 left-0 right-0 w-full h-1 bg-gradient-to-r from-portfolioBlue to-portfolioBlue-light rounded-full"></div>
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
