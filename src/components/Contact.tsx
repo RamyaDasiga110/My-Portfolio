@@ -14,7 +14,7 @@ const Contact = () => {
       <div className="container mx-auto px-4 relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800 relative inline-block">
           Get In Touch
-          <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-purple-500 to-portfolioBlue rounded-full"></div>
+          <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-portfolioBlue rounded-full"></div>
         </h2>
         
         <div className="max-w-lg mx-auto mt-12">
