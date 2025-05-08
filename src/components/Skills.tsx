@@ -2,6 +2,12 @@
 import { Code, Terminal } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { DiagonalLines } from "./DecorativeElements";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const SkillCategory = ({ 
   title, 
