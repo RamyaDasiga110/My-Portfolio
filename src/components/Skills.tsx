@@ -73,7 +73,7 @@ const Skills = () => {
     <section id="projects" className="py-20 bg-gradient-to-b from-white via-purple-50 to-white relative overflow-hidden">
       {/* Decorative shapes */}
       <FloatingShapes />
-      
+      <h1>hello</h1>
       <div className="container mx-auto px-4 relative z-10">
         <h2 className="section-title mb-8 relative">
           Technical Skills
