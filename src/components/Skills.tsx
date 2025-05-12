@@ -7,6 +7,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { FloatingShapes } from "./DecorativeElements";
 
 const SkillCategory = ({ 
   title, 
