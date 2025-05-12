@@ -73,17 +73,11 @@ const Skills = () => {
     <section id="projects" className="py-20 bg-gradient-to-b from-white via-purple-50 to-white relative overflow-hidden">
       {/* Decorative shapes */}
       <FloatingShapes />
-      <div className="container mx-auto px-4 relative z-10">
+      <div >
       <h2 className="section-title mb-8 relative">
           Technical Skills
           <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-purple-500 rounded-full"></div>
         </h2>
-      
-        <h2 className="section-title mb-8 relative">
-          Technical Skills
-          <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-purple-500 rounded-full"></div>
-        </h2>
-        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
           <SkillCategory 
             title="Programming Languages & Frameworks" 
