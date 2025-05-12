@@ -71,7 +71,7 @@ const Skills = () => {
   ];
   
   return (
-    <section id="skills" className="py-20 bg-gradient-to-b from-white via-purple-50 to-white relative overflow-hidden">
+    <section id="projects" className="py-20 bg-gradient-to-b from-white via-purple-50 to-white relative overflow-hidden">
       {/* Decorative shapes */}
       <FloatingShapes />
       
