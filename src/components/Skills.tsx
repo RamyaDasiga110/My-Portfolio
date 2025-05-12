@@ -70,10 +70,9 @@ const Skills = () => {
   ];
   
   return (
-    <section id="skills" className="py-20 bg-gradient-to-r from-white via-blue-50 to-white relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-10 right-10 w-40 h-40 rounded-full bg-portfolioBlue opacity-5 blur-3xl"></div>
-      <div className="absolute bottom-10 left-10 w-60 h-60 rounded-full bg-portfolioBlue opacity-5 blur-3xl"></div>
+    <section id="skills" className="py-20 bg-gradient-to-b from-white via-purple-50 to-white relative overflow-hidden">
+      {/* Decorative shapes */}
+      <FloatingShapes />
       
       <div className="container mx-auto px-4 relative z-10">
         <h2 className="section-title mb-8 relative">
