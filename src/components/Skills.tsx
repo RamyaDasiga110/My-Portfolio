@@ -1,3 +1,4 @@
+
 import { Code, Terminal } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { DiagonalLines } from "./DecorativeElements";
@@ -7,7 +8,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { FloatingShapes } from "./DecorativeElements";
 
 const SkillCategory = ({ 
   title, 
@@ -57,7 +57,9 @@ const SkillCategory = ({
     </CardContent>
   </Card>
 );
-const programmingSkills = [
+
+const Skills = () => {
+  const programmingSkills = [
     "C#", "ASP.NET (Entity Framework, MVC)", "JavaScript/JQuery", 
     "NodeJS", "ReactJS", "MongoDB", "SQL", "WordPress"
   ];
@@ -67,17 +69,21 @@ const programmingSkills = [
     "AWS Developer Tools", "SQL Server Management Studio", "WordPress",
     "Adobe Premiere Pro", "Canva"
   ];
-
-const Skills = () => {
+  
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-white via-purple-50 to-white relative overflow-hidden">
-      {/* Decorative shapes */}
-      <FloatingShapes />
-      <div >
-      <h2 className="section-title mb-8 relative">
-          Technical Skills
-          <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-purple-500 rounded-full"></div>
-        </h2>
+    <section id="skills" className="py-20 bg-gradient-to-r from-white via-blue-50 to-white relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-10 right-10 w-40 h-40 rounded-full bg-portfolioBlue opacity-5 blur-3xl"></div>
+      <div className="absolute bottom-10 left-10 w-60 h-60 rounded-full bg-portfolioBlue opacity-5 blur-3xl"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="flex justify-center mb-12">
+          <h2 className="section-title text-3xl md:text-4xl font-bold mb-4 text-gray-800 relative">
+            Technical Skills
+            <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-portfolioBlue to-portfolioBlue-light rounded-full"></div>
+          </h2>
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
           <SkillCategory 
             title="Programming Languages & Frameworks" 
