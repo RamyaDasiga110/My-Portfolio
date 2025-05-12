@@ -81,7 +81,7 @@ const Skills = () => {
   ];
   
   return (
-    <section id="skills" className="relative overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white py-20">
+    <section id="skills" className="w-full relative overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white py-20">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 h-full w-full">
         <svg className="absolute top-10 right-10 h-64 w-64 text-portfolioBlue opacity-5" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -92,7 +92,7 @@ const Skills = () => {
         </svg>
       </div>
       
-      <div className="container relative z-10 mx-auto px-4">
+      <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">
             Technical Skills
