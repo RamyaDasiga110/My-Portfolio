@@ -1,4 +1,3 @@
-
 import { Code, Terminal } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { DiagonalLines } from "./DecorativeElements";
@@ -77,10 +76,9 @@ const Skills = () => {
       <div className="absolute bottom-10 left-10 w-60 h-60 rounded-full bg-portfolioBlue opacity-5 blur-3xl"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800 relative inline-block">
+        <div className="text-center md:text-left mb-12">
+          <h2 className="section-title text-3xl md:text-4xl font-bold mb-8 text-gray-800">
             Technical Skills
-            <div className="absolute -bottom-2 left-0 right-0 w-full h-1 bg-gradient-to-r from-portfolioBlue to-portfolioBlue-light rounded-full"></div>
           </h2>
         </div>
         
