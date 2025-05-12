@@ -57,9 +57,7 @@ const SkillCategory = ({
     </CardContent>
   </Card>
 );
-
-const Skills = () => {
-  const programmingSkills = [
+const programmingSkills = [
     "C#", "ASP.NET (Entity Framework, MVC)", "JavaScript/JQuery", 
     "NodeJS", "ReactJS", "MongoDB", "SQL", "WordPress"
   ];
@@ -69,7 +67,8 @@ const Skills = () => {
     "AWS Developer Tools", "SQL Server Management Studio", "WordPress",
     "Adobe Premiere Pro", "Canva"
   ];
-  
+
+const Skills = () => {
   return (
     <section id="projects" className="py-20 bg-gradient-to-b from-white via-purple-50 to-white relative overflow-hidden">
       {/* Decorative shapes */}
