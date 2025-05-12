@@ -86,7 +86,7 @@ const Projects = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <h2 className="section-title mb-8 relative">
-          Projects
+          Technical Skills
           <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-purple-500 rounded-full"></div>
         </h2>
         
