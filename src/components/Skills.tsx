@@ -1,22 +1,13 @@
 
 import { Code, Terminal, Database, Cpu } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { FloatingShapes } from "./DecorativeElements";
+import { Card, CardContent } from "@/components/ui/card";
+import { FloatingShapes, DiagonalLines } from "./DecorativeElements";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-
-interface SkillCategoryProps { 
-  title: string; 
-  skills: string[]; 
-  icon: React.ElementType;
-  delay?: string;
-  gradientFrom?: string;
-  gradientTo?: string;
-}
 
 const SkillCategory = ({ 
   title, 
@@ -25,28 +16,33 @@ const SkillCategory = ({
   delay = '0.2s',
   gradientFrom = "from-portfolioBlue",
   gradientTo = "to-purple-500"
-}: SkillCategoryProps) => (
-  <Card className="animate-fade-in opacity-0 bg-white hover:shadow-xl transition-all duration-300 group overflow-hidden border border-gray-100 relative" style={{ animationDelay: delay }}>
-    <div className="absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-br from-portfolioBlue/10 to-purple-400/10 rounded-full group-hover:scale-150 transition-all duration-500"></div>
-    
-    <CardHeader className="relative z-10">
-      <div className="flex items-center gap-3">
-        <div className={`p-2 rounded-md bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md group-hover:shadow-lg transition-shadow`}>
-          <Icon size={20} className="text-white" />
+}: { 
+  title: string; 
+  skills: string[]; 
+  icon: React.ElementType;
+  delay?: string;
+  gradientFrom?: string;
+  gradientTo?: string;
+}) => (
+  <Card className="overflow-hidden border border-gray-200 transition-all duration-300 hover:shadow-lg group">
+    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white opacity-80"></div>
+    <DiagonalLines className="opacity-5" />
+    <CardContent className="relative z-10 p-6">
+      <div className="mb-6 flex items-center gap-3">
+        <div className={`p-3 rounded-md bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md transition-transform duration-300 group-hover:scale-110`}>
+          <Icon size={24} className="text-white" />
         </div>
-        <CardTitle className="text-xl bg-gradient-to-r from-portfolioBlue to-purple-500 bg-clip-text text-transparent group-hover:scale-105 transform transition-transform origin-left">{title}</CardTitle>
+        <h3 className="text-lg font-bold text-gray-800 transition-colors group-hover:text-portfolioBlue">{title}</h3>
       </div>
-    </CardHeader>
-    
-    <CardContent className="relative z-10">
-      <div className="flex flex-wrap gap-2 mb-4">
+      
+      <div className="flex flex-wrap gap-2">
         {skills.map((skill, index) => (
           <TooltipProvider key={skill}>
             <Tooltip>
               <TooltipTrigger asChild>
                 <span 
-                  className={`bg-gradient-to-r ${gradientFrom} ${gradientTo} bg-opacity-10 text-gray-700 px-3 py-1 rounded-full text-xs font-medium hover:text-white hover:shadow-md transition-all duration-300 hover:bg-portfolioBlue`}
-                  style={{ transitionDelay: `${Math.random() * 0.5}s` }}
+                  className="border-2 border-portfolioBlue bg-white px-3 py-1 text-sm font-medium text-gray-800 shadow-sm transition-all duration-300 hover:scale-105 hover:bg-portfolioBlue hover:text-white hover:shadow-md transform rounded-md"
+                  style={{ transitionDelay: `${index * 50}ms` }}
                 >
                   {skill}
                 </span>
@@ -95,7 +91,7 @@ const Skills = () => {
           <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-purple-500 rounded-full"></div>
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-12">
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
           <SkillCategory 
             title="Programming Languages & Frameworks" 
             skills={programmingSkills} 
