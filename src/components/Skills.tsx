@@ -116,12 +116,14 @@ const Skills = () => {
       </div>
       
       <div className="container mx-auto px-4">
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
-            Technical Skills
-          </h2>
-          <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-portfolioBlue to-portfolioBlue-light"></div>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+        {/* Main heading styled similar to Projects section */}
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800 relative inline-block">
+          Technical Skills
+          <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-purple-500 rounded-full"></div>
+        </h2>
+        
+        <div className="mb-12">
+          <p className="mt-4 text-gray-600 max-w-2xl">
             Expertise in modern web technologies and development tools
           </p>
         </div>
