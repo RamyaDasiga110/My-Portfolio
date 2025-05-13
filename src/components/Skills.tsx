@@ -26,7 +26,7 @@ const SkillCategory = ({
 }) => (
   <Card className="overflow-hidden border border-gray-200 transition-all duration-300 hover:shadow-lg group">
     <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white opacity-80"></div>
-    <DiagonalLines className="opacity-5" />
+    <DiagonalLines />
     <CardContent className="relative z-10 p-6">
       <div className="mb-6 flex items-center gap-3">
         <div className={`p-3 rounded-md bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md transition-transform duration-300 group-hover:scale-110`}>
