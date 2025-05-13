@@ -1,13 +1,22 @@
 
 import { Code, Terminal, Database, Cpu } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { DiagonalLines } from "./DecorativeElements";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { FloatingShapes } from "./DecorativeElements";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+
+interface SkillCategoryProps { 
+  title: string; 
+  skills: string[]; 
+  icon: React.ElementType;
+  delay?: string;
+  gradientFrom?: string;
+  gradientTo?: string;
+}
 
 const SkillCategory = ({ 
   title, 
@@ -16,33 +25,28 @@ const SkillCategory = ({
   delay = '0.2s',
   gradientFrom = "from-portfolioBlue",
   gradientTo = "to-purple-500"
-}: { 
-  title: string; 
-  skills: string[]; 
-  icon: React.ElementType;
-  delay?: string;
-  gradientFrom?: string;
-  gradientTo?: string;
-}) => (
-  <Card className="overflow-hidden border border-gray-200 transition-all duration-300 hover:shadow-lg group">
-    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white opacity-80"></div>
-    <DiagonalLines className="opacity-5" />
-    <CardContent className="relative z-10 p-6">
-      <div className="mb-6 flex items-center gap-3">
-        <div className={`p-3 rounded-md bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md transition-transform duration-300 group-hover:scale-110`}>
-          <Icon size={24} className="text-white" />
+}: SkillCategoryProps) => (
+  <Card className="animate-fade-in opacity-0 bg-white hover:shadow-xl transition-all duration-300 group overflow-hidden border border-gray-100 relative" style={{ animationDelay: delay }}>
+    <div className="absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-br from-portfolioBlue/10 to-purple-400/10 rounded-full group-hover:scale-150 transition-all duration-500"></div>
+    
+    <CardHeader className="relative z-10">
+      <div className="flex items-center gap-3">
+        <div className={`p-2 rounded-md bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md group-hover:shadow-lg transition-shadow`}>
+          <Icon size={20} className="text-white" />
         </div>
-        <h3 className="text-lg font-bold text-gray-800 transition-colors group-hover:text-portfolioBlue">{title}</h3>
+        <CardTitle className="text-xl bg-gradient-to-r from-portfolioBlue to-purple-500 bg-clip-text text-transparent group-hover:scale-105 transform transition-transform origin-left">{title}</CardTitle>
       </div>
-      
-      <div className="flex flex-wrap gap-2">
+    </CardHeader>
+    
+    <CardContent className="relative z-10">
+      <div className="flex flex-wrap gap-2 mb-4">
         {skills.map((skill, index) => (
           <TooltipProvider key={skill}>
             <Tooltip>
               <TooltipTrigger asChild>
                 <span 
-                  className="border-2 border-portfolioBlue bg-white px-3 py-1 text-sm font-medium text-gray-800 shadow-sm transition-all duration-300 hover:scale-105 hover:bg-portfolioBlue hover:text-white hover:shadow-md transform rounded-md"
-                  style={{ transitionDelay: `${index * 50}ms` }}
+                  className={`bg-gradient-to-r ${gradientFrom} ${gradientTo} bg-opacity-10 text-gray-700 px-3 py-1 rounded-full text-xs font-medium hover:text-white hover:shadow-md transition-all duration-300 hover:bg-portfolioBlue`}
+                  style={{ transitionDelay: `${Math.random() * 0.5}s` }}
                 >
                   {skill}
                 </span>
@@ -81,29 +85,17 @@ const Skills = () => {
   ];
   
   return (
-    <section id="skills" className="w-full relative overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white py-20">
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 h-full w-full">
-        <svg className="absolute top-10 right-10 h-64 w-64 text-portfolioBlue opacity-5" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <path fill="currentColor" d="M45,-65.1C59.1,-56.3,72,-43.5,77.8,-27.9C83.7,-12.2,82.6,6.4,77.4,23.5C72.2,40.5,63.1,56.2,49.3,65.2C35.5,74.3,17.8,76.7,0.2,76.5C-17.3,76.2,-34.5,73.2,-46.7,63.4C-58.9,53.7,-66.1,37,-69.7,20.7C-73.3,4.4,-73.2,-11.4,-67.5,-24.5C-61.8,-37.6,-50.6,-48,-38,-57.4C-25.4,-66.7,-12.7,-74.9,1.9,-77.7C16.6,-80.5,33.1,-77.8,45,-65.1Z" transform="translate(100 100)" />
-        </svg>
-        <svg className="absolute bottom-10 left-10 h-48 w-48 text-portfolioBlue opacity-5" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <path fill="currentColor" d="M31.5,-37.4C44.4,-29.5,60.8,-23.4,67.9,-11.3C75,0.8,72.9,19,64.6,31.8C56.4,44.7,42,52.3,27.7,56.7C13.4,61.2,-0.9,62.6,-16.4,60.1C-31.9,57.6,-48.6,51.2,-59.6,39C-70.6,26.7,-76,8.5,-73,-8.1C-69.9,-24.8,-58.5,-40.1,-44.3,-48.1C-30.1,-56,-15.1,-56.8,-2.1,-54C10.8,-51.3,21.7,-45.3,31.5,-37.4Z" transform="translate(100 100)" />
-        </svg>
-      </div>
+    <section id="skills" className="py-20 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
+      {/* Decorative shapes */}
+      <FloatingShapes />
       
-      <div className="container mx-auto px-4">
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">
-            Technical Skills
-          </h2>
-          <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-portfolioBlue to-portfolioBlue-light"></div>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            Expertise in modern web technologies and development tools
-          </p>
-        </div>
+      <div className="container mx-auto px-4 relative z-10">
+        <h2 className="section-title mb-8 relative">
+          Technical Skills
+          <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-purple-500 rounded-full"></div>
+        </h2>
         
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-12">
           <SkillCategory 
             title="Programming Languages & Frameworks" 
             skills={programmingSkills} 
