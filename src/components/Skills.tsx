@@ -85,15 +85,17 @@ const Skills = () => {
   ];
   
   return (
-    <section id="skills" className="py-20 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
+    <section id="skills" className="w-full relative overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white py-20">
       {/* Decorative shapes */}
       <FloatingShapes />
       
-      <div className="container mx-auto px-4 relative z-10">
-        <h2 className="section-title mb-8 relative">
-          Technical Skills
-          <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-purple-500 rounded-full"></div>
-        </h2>
+      <div className="container mx-auto px-4">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">
+            Technical Skills
+            <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-purple-500 rounded-full"></div>
+          </h2>
+        </div>
         
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
           <SkillCategory 
