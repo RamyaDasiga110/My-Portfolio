@@ -9,6 +9,15 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
+interface SkillCategoryProps { 
+  title: string; 
+  skills: string[]; 
+  icon: React.ElementType;
+  delay?: string;
+  gradientFrom?: string;
+  gradientTo?: string;
+}
+
 const SkillCategory = ({ 
   title, 
   skills, 
@@ -16,14 +25,7 @@ const SkillCategory = ({
   delay = '0.2s',
   gradientFrom = "from-portfolioBlue",
   gradientTo = "to-purple-500"
-}: { 
-  title: string; 
-  skills: string[]; 
-  icon: React.ElementType;
-  delay?: string;
-  gradientFrom?: string;
-  gradientTo?: string;
-}) => (
+}: SkillCategoryProps) => (
   <Card className="overflow-hidden border border-gray-200 transition-all duration-300 hover:shadow-lg group">
     <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white opacity-80"></div>
     <DiagonalLines className="opacity-5" />
