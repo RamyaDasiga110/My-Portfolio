@@ -17,131 +17,117 @@ interface ProjectProps {
 }
 
 const Project = ({ title, description, link, github, technologies, delay, icon, gradientFrom = "from-portfolioBlue", gradientTo = "to-purple-500" }: ProjectProps) => (
-  <Card className="animate-fade-in opacity-0 bg-white hover:shadow-xl transition-all duration-300 group overflow-hidden border border-gray-100 relative" style={{ animationDelay: delay }}>
-    <div className="absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-br from-portfolioBlue/10 to-purple-400/10 rounded-full group-hover:scale-150 transition-all duration-500"></div>
-    
-    <CardHeader className="relative z-10">
-      <div className="flex items-center gap-3">
-        <div className={`p-2 rounded-md bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md group-hover:shadow-lg transition-shadow`}>
-          {icon}
+  <Card className="overflow-hidden border border-gray-200 transition-all duration-300 hover:shadow-lg group">
+    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white opacity-80"></div>
+    <DiagonalLines className="opacity-5" />
+    <CardContent className="relative z-10 p-6">
+      <div className="mb-6 flex items-center gap-3">
+        <div className={`p-3 rounded-md bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md transition-transform duration-300 group-hover:scale-110`}>
+          <Icon size={24} className="text-white" />
         </div>
-        <CardTitle className="text-xl bg-gradient-to-r from-portfolioBlue to-purple-500 bg-clip-text text-transparent group-hover:scale-105 transform transition-transform origin-left">{title}</CardTitle>
+        <h3 className="text-lg font-bold text-gray-800 transition-colors group-hover:text-portfolioBlue">{title}</h3>
       </div>
-    </CardHeader>
-    
-    <CardContent className="relative z-10">
-      <CardDescription className="text-gray-700 mb-4 text-sm">{description}</CardDescription>
-      <div className="flex flex-wrap gap-2 mb-4">
-        {technologies.map((tech) => (
-          <span 
-            key={tech} 
-            className={`bg-gradient-to-r ${gradientFrom} ${gradientTo} bg-opacity-10 text-gray-700 px-3 py-1 rounded-full text-xs font-medium hover:text-white hover:shadow-md transition-all duration-300 group-hover:translate-y-0 translate-y-0 hover:bg-portfolioBlue`}
-            style={{ transitionDelay: `${Math.random() * 0.5}s` }}
-          >
-            {tech}
-          </span>
+      
+      <div className="flex flex-wrap gap-2">
+        {skills.map((skill, index) => (
+          <TooltipProvider key={skill}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <span 
+                  className="border-2 border-portfolioBlue bg-white px-3 py-1 text-sm font-medium text-gray-800 shadow-sm transition-all duration-300 hover:scale-105 hover:bg-portfolioBlue hover:text-white hover:shadow-md transform rounded-md"
+                  style={{ transitionDelay: `${index * 50}ms` }}
+                >
+                  {skill}
+                </span>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>{skill}</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         ))}
       </div>
     </CardContent>
-    
-    <CardFooter className="flex gap-3 relative z-10">
-      {link && (
-        <Button 
-          variant="outline" 
-          size="sm" 
-          className={`border-portfolioBlue text-portfolioBlue hover:bg-gradient-to-r ${gradientFrom} ${gradientTo} hover:text-white group`}
-        >
-          <a 
-            href={link} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="flex items-center gap-1"
-          >
-            <ExternalLink size={14} className="group-hover:rotate-12 transition-transform" /> View Project
-          </a>
-        </Button>
-      )}
-      
-      {github && (
-        <Button variant="outline" size="sm" className="group">
-          <a 
-            href={github} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="flex items-center gap-1"
-          >
-            <Github size={14} className="group-hover:rotate-12 transition-transform" /> GitHub
-          </a>
-        </Button>
-      )}
-    </CardFooter>
   </Card>
 );
 
-const Projects = () => {
+const Skills = () => {
+  const programmingSkills = [
+    "C#", "ASP.NET (Entity Framework, MVC)", "JavaScript/JQuery", 
+    "NodeJS", "ReactJS", "MongoDB", "SQL", "WordPress"
+  ];
+  
+  const toolsSkills = [
+    "Microsoft Visual Studio", "Git", "GitHub", 
+    "AWS Developer Tools", "SQL Server Management Studio", "WordPress",
+    "Adobe Premiere Pro", "Canva"
+  ];
+
+  const databaseSkills = [
+    "SQL Server", "MongoDB", "MySQL", "Database Design",
+    "Query Optimization", "Data Modeling"
+  ];
+
+  const devOpsSkills = [
+    "CI/CD", "AWS", "Version Control", "Docker",
+    "Deployment Automation", "Testing"
+  ];
+  
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-white via-purple-50 to-white relative overflow-hidden">
-      {/* Decorative shapes */}
-      <FloatingShapes />
+    <section id="skills" className="w-full relative overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white py-20">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 h-full w-full">
+        <svg className="absolute top-10 right-10 h-64 w-64 text-portfolioBlue opacity-5" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path fill="currentColor" d="M45,-65.1C59.1,-56.3,72,-43.5,77.8,-27.9C83.7,-12.2,82.6,6.4,77.4,23.5C72.2,40.5,63.1,56.2,49.3,65.2C35.5,74.3,17.8,76.7,0.2,76.5C-17.3,76.2,-34.5,73.2,-46.7,63.4C-58.9,53.7,-66.1,37,-69.7,20.7C-73.3,4.4,-73.2,-11.4,-67.5,-24.5C-61.8,-37.6,-50.6,-48,-38,-57.4C-25.4,-66.7,-12.7,-74.9,1.9,-77.7C16.6,-80.5,33.1,-77.8,45,-65.1Z" transform="translate(100 100)" />
+        </svg>
+        <svg className="absolute bottom-10 left-10 h-48 w-48 text-portfolioBlue opacity-5" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path fill="currentColor" d="M31.5,-37.4C44.4,-29.5,60.8,-23.4,67.9,-11.3C75,0.8,72.9,19,64.6,31.8C56.4,44.7,42,52.3,27.7,56.7C13.4,61.2,-0.9,62.6,-16.4,60.1C-31.9,57.6,-48.6,51.2,-59.6,39C-70.6,26.7,-76,8.5,-73,-8.1C-69.9,-24.8,-58.5,-40.1,-44.3,-48.1C-30.1,-56,-15.1,-56.8,-2.1,-54C10.8,-51.3,21.7,-45.3,31.5,-37.4Z" transform="translate(100 100)" />
+        </svg>
+      </div>
       
-      <div className="container mx-auto px-4 relative z-10">
-        <h2 className="section-title mb-8 relative">
-          Technical Skills
-          <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-purple-500 rounded-full"></div>
-        </h2>
+      <div className="container mx-auto px-4">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">
+            Technical Skills
+          </h2>
+          <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-portfolioBlue to-portfolioBlue-light"></div>
+          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+            Expertise in modern web technologies and development tools
+          </p>
+        </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-          <Project 
-            title="Real-time Weather Application" 
-            description="A responsive web application that provides real-time weather updates with clean user interface and performance optimizations."
-            link="https://realtime-weatherapp-nextjs-git-master-ramyadasigas-projects.vercel.app/"
-            technologies={["NextJS", "TypeScript", "Weather API", "Responsive Design"]}
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
+          <SkillCategory 
+            title="Programming Languages & Frameworks" 
+            skills={programmingSkills} 
+            icon={Code} 
             delay="0.2s"
-            icon={<Rocket size={20} />}
-            gradientFrom="from-blue-500"
-            gradientTo="to-cyan-400"
-          />
-          
-          <Project 
-            title="Data Security Tool" 
-            description="An Encryption/Decryption Tool that implements the SALT algorithm for securely encrypting and decrypting original passwords in connection strings."
-            technologies={["C#", "Cryptography", "SALT Algorithm", "Security"]}
-            delay="0.3s"
-            icon={<Star size={20} />}
-            gradientFrom="from-purple-500"
-            gradientTo="to-pink-400"
-          />
-          
-          <Project 
-            title="Database Audit Tool" 
-            description="Tool to track creation and modification dates of database tables, stored procedures, and functions across all environments, supporting compliance and oversight."
-            technologies={["SQL", "Database Management", "Audit", "Compliance"]}
-            delay="0.4s"
-            icon={<Code size={20} />}
             gradientFrom="from-portfolioBlue"
-            gradientTo="to-blue-400"
+            gradientTo="to-portfolioBlue-light"
           />
-          
-          <Project 
-            title="Mapecontrol Website" 
-            description="Redesigned and updated company website with modern layout, responsive design, and performance optimization."
-            link="https://www.mapecontrol.it"
-            technologies={["WordPress", "Web Design", "Responsive UI", "SEO"]}
-            delay="0.5s"
-            icon={<Globe size={20} />}
-            gradientFrom="from-green-500"
-            gradientTo="to-teal-400"
+          <SkillCategory 
+            title="Tools & Technologies" 
+            skills={toolsSkills} 
+            icon={Terminal} 
+            delay="0.4s"
+            gradientFrom="from-portfolioBlue-dark"
+            gradientTo="to-portfolioBlue"
           />
-          
-          <Project 
-            title="Esploriamoitalia Website" 
-            description="Improved user experience through a modern layout, responsive design, and performance optimization for a travel company."
-            link="https://www.esploriamoitalia.com"
-            technologies={["WordPress", "Web Design", "Responsive UI", "SEO"]}
+          <SkillCategory 
+            title="Database Systems" 
+            skills={databaseSkills} 
+            icon={Database} 
             delay="0.6s"
-            icon={<Globe size={20} />}
-            gradientFrom="from-amber-500"
-            gradientTo="to-orange-400"
+            gradientFrom="from-blue-500"
+            gradientTo="to-purple-500"
+          />
+          <SkillCategory 
+            title="DevOps & Deployment" 
+            skills={devOpsSkills} 
+            icon={Cpu} 
+            delay="0.8s"
+            gradientFrom="from-purple-500"
+            gradientTo="to-blue-400"
           />
         </div>
       </div>
@@ -149,4 +135,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Skills;
