@@ -9,42 +9,38 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-const SkillCategory = ({
-  title,
-  skills,
+const SkillCategory = ({ 
+  title, 
+  skills, 
   icon: Icon,
-  delay = "0.2s",
+  delay = '0.2s',
   gradientFrom = "from-portfolioBlue",
-  gradientTo = "to-purple-500",
-}: {
-  title: string;
-  skills: string[];
+  gradientTo = "to-purple-500"
+}: { 
+  title: string; 
+  skills: string[]; 
   icon: React.ElementType;
   delay?: string;
   gradientFrom?: string;
   gradientTo?: string;
 }) => (
   <Card className="overflow-hidden border border-gray-200 transition-all duration-300 hover:shadow-lg group">
-    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white opacity-80 z-0"></div>
-    <DiagonalLines className="opacity-5 z-0" />
+    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white opacity-80"></div>
+    <DiagonalLines className="opacity-5" />
     <CardContent className="relative z-10 p-6">
       <div className="mb-6 flex items-center gap-3">
-        <div
-          className={`p-3 rounded-md bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md transition-transform duration-300 group-hover:scale-110`}
-        >
+        <div className={`p-3 rounded-md bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md transition-transform duration-300 group-hover:scale-110`}>
           <Icon size={24} className="text-white" />
         </div>
-        <h3 className="text-lg font-bold text-gray-800 transition-colors group-hover:text-portfolioBlue">
-          {title}
-        </h3>
+        <h3 className="text-lg font-bold text-gray-800 transition-colors group-hover:text-portfolioBlue">{title}</h3>
       </div>
-
+      
       <div className="flex flex-wrap gap-2">
         {skills.map((skill, index) => (
           <TooltipProvider key={skill}>
             <Tooltip>
               <TooltipTrigger asChild>
-                <span
+                <span 
                   className="border-2 border-portfolioBlue bg-white px-3 py-1 text-sm font-medium text-gray-800 shadow-sm transition-all duration-300 hover:scale-105 hover:bg-portfolioBlue hover:text-white hover:shadow-md transform rounded-md"
                   style={{ transitionDelay: `${index * 50}ms` }}
                 >
@@ -64,47 +60,28 @@ const SkillCategory = ({
 
 const Skills = () => {
   const programmingSkills = [
-    "C#",
-    "ASP.NET (Entity Framework, MVC)",
-    "JavaScript/JQuery",
-    "NodeJS",
-    "ReactJS",
-    "MongoDB",
-    "SQL",
-    "WordPress",
+    "C#", "ASP.NET (Entity Framework, MVC)", "JavaScript/JQuery", 
+    "NodeJS", "ReactJS", "MongoDB", "SQL", "WordPress"
   ];
-
+  
   const toolsSkills = [
-    "Microsoft Visual Studio",
-    "Git",
-    "GitHub",
-    "AWS Developer Tools",
-    "SQL Server Management Studio",
-    "WordPress",
-    "Adobe Premiere Pro",
-    "Canva",
+    "Microsoft Visual Studio", "Git", "GitHub", 
+    "AWS Developer Tools", "SQL Server Management Studio", "WordPress",
+    "Adobe Premiere Pro", "Canva"
   ];
 
   const databaseSkills = [
-    "SQL Server",
-    "MongoDB",
-    "MySQL",
-    "Database Design",
-    "Query Optimization",
-    "Data Modeling"
+    "SQL Server", "MongoDB", "MySQL", "Database Design",
+    "Query Optimization", "Data Modeling"
   ];
 
   const devOpsSkills = [
-    "CI/CD",
-    "AWS",
-    "Version Control",
-    "Docker",
-    "Deployment Automation",
-    "Testing"
+    "CI/CD", "AWS", "Version Control", "Docker",
+    "Deployment Automation", "Testing"
   ];
   
   return (
-    <section id="skills" className="w-full relative overflow-hidden bg-white py-20">
+    <section id="skills" className="w-full relative overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white py-20">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 h-full w-full">
         <svg className="absolute top-10 right-10 h-64 w-64 text-portfolioBlue opacity-5" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
