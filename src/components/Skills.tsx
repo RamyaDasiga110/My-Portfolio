@@ -9,7 +9,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-
 const SkillCategory = ({ 
   title, 
   skills, 
