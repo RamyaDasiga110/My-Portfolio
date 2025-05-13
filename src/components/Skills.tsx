@@ -1,20 +1,12 @@
-
-import { ExternalLink, Github, Rocket, Star, Code, Globe } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { FloatingShapes } from "./DecorativeElements";
-
-interface ProjectProps {
-  title: string;
-  description: string;
-  link?: string;
-  github?: string;
-  technologies: string[];
-  delay: string;
-  icon: React.ReactNode;
-  gradientFrom?: string;
-  gradientTo?: string;
-}
+import { Code, Terminal, Database, Cpu } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { DiagonalLines } from "./DecorativeElements";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const SkillCategory = ({ 
   title, 
