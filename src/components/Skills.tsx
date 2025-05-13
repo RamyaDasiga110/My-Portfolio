@@ -9,6 +9,18 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
+interface SkillProps {
+  title: string;
+  description: string;
+  link?: string;
+  github?: string;
+  technologies: string[];
+  delay: string;
+  icon: React.ReactNode;
+  gradientFrom?: string;
+  gradientTo?: string;
+}
+
 const SkillCategory = ({ 
   title, 
   skills, 
@@ -16,21 +28,14 @@ const SkillCategory = ({
   delay = '0.2s',
   gradientFrom = "from-portfolioBlue",
   gradientTo = "to-purple-500"
-}: { 
-  title: string; 
-  skills: string[]; 
-  icon: React.ElementType;
-  delay?: string;
-  gradientFrom?: string;
-  gradientTo?: string;
-}) => (
-  <Card className="overflow-hidden border border-gray-200 transition-all duration-300 hover:shadow-lg group">
-    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white opacity-80"></div>
-    <DiagonalLines className="opacity-5" />
-    <CardContent className="relative z-10 p-6">
+}: SkillProps) => (
+  <Card className="animate-fade-in opacity-0 bg-white hover:shadow-xl transition-all duration-300 group overflow-hidden border border-gray-100 relative" style={{ animationDelay: delay }}>
+    <div className="absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-br from-portfolioBlue/10 to-purple-400/10 rounded-full group-hover:scale-150 transition-all duration-500"></div>
+    <DiagonalLines />
+    <CardContent className="relative z-10">
       <div className="mb-6 flex items-center gap-3">
-        <div className={`p-3 rounded-md bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md transition-transform duration-300 group-hover:scale-110`}>
-          <Icon size={24} className="text-white" />
+        <div className={`p-2 rounded-md bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md group-hover:shadow-lg transition-shadow`}>
+          {Icon}
         </div>
         <h3 className="text-lg font-bold text-gray-800 transition-colors group-hover:text-portfolioBlue">{title}</h3>
       </div>
