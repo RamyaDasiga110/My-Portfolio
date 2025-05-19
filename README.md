@@ -4,7 +4,7 @@ Welcome to the source code of my personal portfolio website – a thoughtfully c
 Built with a modern stack — Vite + React + TypeScript + Tailwind CSS — this site is fast, responsive, and designed to feel clean, intuitive, and memorable.
 
 🎯 Purpose
-This portfolio isn’t just a résumé — it’s a narrative. A dynamic showcase of my technical depth, professional growth, and creative expression.
+This portfolio isn’t just a resume — it’s a narrative. A dynamic showcase of my technical depth, professional growth, and creative expression.
 
 🧩 What's Inside?
 Get to know me
