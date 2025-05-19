@@ -10,7 +10,7 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   
   const navItems = [
-    { name: "Home", href: "/" },
+    { name: "Home", href: "/myportfolio" },
     { name: "Experience", href: "#experience" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
