@@ -85,7 +85,7 @@ const Hero = () => {
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-purple-500 to-portfolioBlue p-1 shadow-xl">
                 <div className="absolute inset-1 rounded-full bg-white flex items-center justify-center overflow-hidden">
                   <Avatar className="w-full h-full">
-                    <AvatarImage src="/lovable-uploads/a0e96d51-a83a-4940-a633-2655f1561f35.png" alt="Ramya Shravani Dasiga" className="object-cover" />
+                    <AvatarImage src={`${import.meta.env.BASE_URL}lovable-uploads/a0e96d51-a83a-4940-a633-2655f1561f35.png`} alt="Ramya Shravani Dasiga" className="object-cover" />
                     <AvatarFallback className="bg-gradient-to-r from-portfolioBlue to-purple-500">
                       <span className="text-7xl font-bold text-white">RS</span>
                     </AvatarFallback>
