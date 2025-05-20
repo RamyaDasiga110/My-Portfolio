@@ -8,7 +8,8 @@ import {
   FolderKanban, 
   Youtube, 
   Award, 
-  Mail
+  Mail,
+  FileDown
 } from "lucide-react";
 
 const Navbar = () => {
@@ -54,7 +55,7 @@ const Navbar = () => {
         </Link>
         
         {/* Desktop navigation */}
-        <div className="hidden md:flex gap-6">
+        <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
             <a 
               key={item.name}
@@ -65,6 +66,16 @@ const Navbar = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-portfolioBlue group-hover:w-full transition-all duration-300"></span>
             </a>
           ))}
+          
+          {/* CV Download Link - Desktop */}
+          <a 
+            href={`${import.meta.env.BASE_URL}Ramya_CV.pdf`}
+            download="Ramya_CV.pdf"
+            className="ml-2 flex items-center gap-1.5 bg-gradient-to-r from-purple-600 to-blue-500 text-white text-sm px-3 py-1.5 rounded-full hover:shadow-md transition-all"
+          >
+            <FileDown size={14} />
+            <span>CV</span>
+          </a>
         </div>
         
         {/* Hamburger menu button */}
@@ -98,7 +109,7 @@ const Navbar = () => {
       <div 
         className={cn(
           "absolute top-full left-0 right-0 shadow-lg transform transition-all duration-300 ease-in-out overflow-hidden mobile-menu z-40",
-          isMenuOpen ? "max-h-[460px] opacity-100" : "max-h-0 opacity-0"
+          isMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         )}
       >
         <div className="relative bg-gradient-to-br from-white to-purple-50/30">
@@ -150,6 +161,23 @@ const Navbar = () => {
                     </a>
                   );
                 })}
+                
+                {/* CV Download Link - Mobile */}
+                <a
+                  href={`${import.meta.env.BASE_URL}Ramya_CV.pdf`}
+                  download="Ramya_CV.pdf"
+                  className="flex items-center px-4 py-3 rounded-lg transition-all bg-gradient-to-r from-purple-600 to-blue-500 text-white border border-purple-700/20 shadow-sm hover:shadow mt-3"
+                  onClick={() => {
+                    setTimeout(() => setIsMenuOpen(false), 300);
+                  }}
+                >
+                  <div className="w-8 h-8 flex items-center justify-center rounded-full mr-4 bg-white/20">
+                    <FileDown size={16} className="text-white" />
+                  </div>
+                  <span className="font-medium">
+                    Download CV
+                  </span>
+                </a>
               </div>
             </div>
           </div>
