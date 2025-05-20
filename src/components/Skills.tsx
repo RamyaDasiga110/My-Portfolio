@@ -61,18 +61,18 @@ const SkillCategory = ({
 const Skills = () => {
   const programmingSkills = [
     "C#", "ASP.NET (Entity Framework, MVC)", "JavaScript/JQuery", 
-    "NodeJS", "ReactJS", "MongoDB", "SQL", "WordPress"
+    "NodeJS", "ReactJS", "HTML5", "CSS3", "Tailwind CSS", "Typescript"
   ];
   
   const toolsSkills = [
     "Microsoft Visual Studio", "Git", "GitHub", 
     "AWS Developer Tools", "SQL Server Management Studio", "WordPress",
-    "Adobe Premiere Pro", "Canva"
+    "Adobe Premiere Pro", "Canva", "Figma", "Swagger"
   ];
 
   const databaseSkills = [
     "SQL Server", "MongoDB", "MySQL", "Database Design",
-    "Query Optimization", "Data Modeling"
+    "Query Optimization", "Data Modeling", "Stored Procedures"
   ];
 
   const devOpsSkills = [
