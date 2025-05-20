@@ -78,31 +78,45 @@ const Navbar = () => {
           </a>
         </div>
         
-        {/* Hamburger menu button */}
-        <button 
-          className="md:hidden flex flex-col justify-center items-center w-9 h-9 relative z-50 menu-button"
-          onClick={toggleMenu}
-          aria-label="Toggle menu" 
-        >
-          <span 
-            className={cn(
-              "w-5 h-0.5 bg-gray-800 rounded transition-all duration-300",
-              isMenuOpen ? "absolute rotate-45" : "mb-1.5"
-            )}
-          ></span>
-          <span 
-            className={cn(
-              "w-5 h-0.5 bg-gray-800 rounded transition-all duration-300",
-              isMenuOpen ? "opacity-0" : "mb-1.5"
-            )}
-          ></span>
-          <span 
-            className={cn(
-              "w-5 h-0.5 bg-gray-800 rounded transition-all duration-300",
-              isMenuOpen ? "absolute -rotate-45" : ""
-            )}
-          ></span>
-        </button>
+        {/* Mobile actions container */}
+        <div className="md:hidden flex items-center gap-2">
+          {/* CV Download Link - Mobile Outside Menu */}
+          <a 
+            href={`${import.meta.env.BASE_URL}Ramya_CV.pdf`}
+            download="Ramya_CV.pdf"
+            className="flex items-center gap-1 bg-gradient-to-r from-purple-600 to-blue-500 text-white text-xs px-2 py-1 rounded-full hover:shadow-md transition-all"
+            aria-label="Download CV"
+          >
+            <FileDown size={12} />
+            <span>CV</span>
+          </a>
+          
+          {/* Hamburger menu button */}
+          <button 
+            className="flex flex-col justify-center items-center w-9 h-9 relative z-50 menu-button"
+            onClick={toggleMenu}
+            aria-label="Toggle menu" 
+          >
+            <span 
+              className={cn(
+                "w-5 h-0.5 bg-gray-800 rounded transition-all duration-300",
+                isMenuOpen ? "absolute rotate-45" : "mb-1.5"
+              )}
+            ></span>
+            <span 
+              className={cn(
+                "w-5 h-0.5 bg-gray-800 rounded transition-all duration-300",
+                isMenuOpen ? "opacity-0" : "mb-1.5"
+              )}
+            ></span>
+            <span 
+              className={cn(
+                "w-5 h-0.5 bg-gray-800 rounded transition-all duration-300",
+                isMenuOpen ? "absolute -rotate-45" : ""
+              )}
+            ></span>
+          </button>
+        </div>
       </nav>
       
       {/* Professional mobile menu */}
