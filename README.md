@@ -1,4 +1,4 @@
-🚀 My Developer Portfolio – Built for Impact, Not Just Impressions
+🚀 My Developer Portfolio – Built for Impact, Not Just Impressions. 
 Welcome to the source code of my personal portfolio website – a thoughtfully crafted digital space that reflects not just what I do, but who I am as a developer, creator, and problem solver.
 
 Built with a modern stack — Vite + React + TypeScript + Tailwind CSS — this site is fast, responsive, and designed to feel clean, intuitive, and memorable.
