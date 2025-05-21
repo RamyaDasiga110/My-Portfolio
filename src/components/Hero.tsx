@@ -58,7 +58,7 @@ const Hero = () => {
                 <Youtube size={18} className="text-red-500" /> DailyDoseWithRamya
               </a>
               <span className="flex items-center gap-2 text-gray-700 hover:scale-105 transform duration-200">
-                <Phone size={18} className="text-portfolioBlue" /> +39 351 358 7870
+                <Phone size={18} className="text-portfolioBlue" /> +39 351 358 7870, +91 7760669686
               </span>
               <span className="flex items-center gap-2 text-gray-700 hover:scale-105 transform duration-200">
                 <MapPin size={18} className="text-portfolioBlue" /> Pisa, Italy

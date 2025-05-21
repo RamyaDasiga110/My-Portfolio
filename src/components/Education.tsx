@@ -4,7 +4,7 @@ import { WavyBackground } from "./DecorativeElements";
 
 const Education = () => {
   return (
-    <section className="py-20 bg-gradient-to-r from-white via-blue-50 to-white relative overflow-hidden">
+    <section id="education" className="py-20 bg-gradient-to-r from-white via-blue-50 to-white relative overflow-hidden">
       {/* Decorative elements */}
       <WavyBackground />
       
@@ -57,7 +57,12 @@ const Education = () => {
                         <rect width="20" height="16" x="2" y="4" rx="2" />
                         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                       </svg>
-                      <span>r.dasiga@studenti.unipi.it</span>
+                      <a 
+                        href="mailto:r.dasiga@studenti.unipi.it" 
+                        className="text-portfolioBlue hover:underline transition-all"
+                      >
+                        r.dasiga@studenti.unipi.it
+                      </a>
                     </div>
                   </div>
                 </div>

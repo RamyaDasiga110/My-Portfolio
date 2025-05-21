@@ -9,7 +9,8 @@ import {
   Youtube, 
   Award, 
   Mail,
-  FileDown
+  FileDown,
+  GraduationCap
 } from "lucide-react";
 
 const Navbar = () => {
@@ -38,6 +39,7 @@ const Navbar = () => {
     { name: "Experience", href: "#experience", icon: Briefcase },
     { name: "Skills", href: "#skills", icon: Code2 },
     { name: "Projects", href: "#projects", icon: FolderKanban },
+    { name: "Education", href: "#education", icon: GraduationCap },
     { name: "YouTube", href: "#youtube", icon: Youtube },
     { name: "Achievements", href: "#achievements", icon: Award },
     { name: "Contact", href: "#contact", icon: Mail },
