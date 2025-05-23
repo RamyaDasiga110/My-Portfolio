@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { useResponsive } from "@/hooks/use-responsive";
 import { 
   Home, 
   Briefcase, 
@@ -16,6 +17,7 @@ import {
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
+  const { isTablet, isDesktop } = useResponsive();
   
   // Close menu when clicking outside
   useEffect(() => {
@@ -35,7 +37,7 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   
   const navItems = [
-    { name: "Home", href: "/myportfolio", icon: Home },
+    { name: "Home", href: "#home", icon: Home },
     { name: "Experience", href: "#experience", icon: Briefcase },
     { name: "Skills", href: "#skills", icon: Code2 },
     { name: "Projects", href: "#projects", icon: FolderKanban },
@@ -49,15 +51,15 @@ const Navbar = () => {
     <header className="sticky top-0 z-50 bg-white shadow-sm backdrop-blur-md bg-white/90">
       <nav className="container mx-auto px-4 py-3.5 flex justify-between items-center">
         {/* Logo/name */}
-        <Link 
-          to="/" 
+        <a 
+          href="#home" 
           className="font-heading text-xl font-bold bg-gradient-to-r from-purple-500 to-portfolioBlue bg-clip-text text-transparent"
         >
           Ramya Shravani
-        </Link>
+        </a>
         
-        {/* Desktop navigation */}
-        <div className="hidden md:flex items-center gap-6">
+        {/* Desktop navigation - only visible on desktop, not on tablet */}
+        <div className="hidden lg:flex items-center gap-6">
           {navItems.map((item) => (
             <a 
               key={item.name}
@@ -80,17 +82,17 @@ const Navbar = () => {
           </a>
         </div>
         
-        {/* Mobile actions container */}
-        <div className="md:hidden flex items-center gap-2">
+        {/* Mobile/Tablet actions container */}
+        <div className="lg:hidden flex items-center gap-2">
           {/* CV Download Link - Mobile Outside Menu */}
           <a 
             href={`${import.meta.env.BASE_URL}Ramya_CV.pdf`}
             download="Ramya_CV.pdf"
-            className="flex items-center gap-1 bg-gradient-to-r from-purple-600 to-blue-500 text-white text-xs px-2 py-1 rounded-full hover:shadow-md transition-all"
+            className={`flex items-center gap-1 bg-gradient-to-r from-purple-600 to-blue-500 text-white text-xs px-2 py-1 rounded-full hover:shadow-md transition-all mr-2`}
             aria-label="Download CV"
           >
             <FileDown size={12} />
-            <span>CV</span>
+            <span className="sm:inline">CV</span>
           </a>
           
           {/* Hamburger menu button */}
@@ -121,11 +123,11 @@ const Navbar = () => {
         </div>
       </nav>
       
-      {/* Professional mobile menu */}
+      {/* Mobile/Tablet menu */}
       <div 
         className={cn(
-          "absolute top-full left-0 right-0 shadow-lg transform transition-all duration-300 ease-in-out overflow-hidden mobile-menu z-40",
-          isMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          "fixed top-[60px] left-0 right-0 shadow-lg transform transition-all duration-300 ease-in-out overflow-auto mobile-menu z-40 bg-white",
+          isMenuOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
         )}
       >
         <div className="relative bg-gradient-to-br from-white to-purple-50/30">
@@ -137,9 +139,9 @@ const Navbar = () => {
           
           {/* Menu content container */}
           <div className="relative z-10 px-4 py-5">
-            {/* Professional menu layout */}
-            <div className="mx-auto max-w-lg">
-              <div className="flex flex-col space-y-0.5">
+            {/* Menu layout - grid for tablet, column for mobile */}
+            <div className={`mx-auto ${isTablet ? "max-w-3xl" : "max-w-lg"}`}>
+              <div className={`${isTablet ? "grid grid-cols-2 gap-3" : "flex flex-col space-y-2"}`}>
                 {navItems.map((item, index) => {
                   const Icon = item.icon;
                   return (
@@ -178,11 +180,11 @@ const Navbar = () => {
                   );
                 })}
                 
-                {/* CV Download Link - Mobile */}
+                {/* CV Download Link - Mobile/Tablet */}
                 <a
                   href={`${import.meta.env.BASE_URL}Ramya_CV.pdf`}
                   download="Ramya_CV.pdf"
-                  className="flex items-center px-4 py-3 rounded-lg transition-all bg-gradient-to-r from-purple-600 to-blue-500 text-white border border-purple-700/20 shadow-sm hover:shadow mt-3"
+                  className={`flex items-center px-4 py-3 rounded-lg transition-all bg-gradient-to-r from-purple-600 to-blue-500 text-white border border-purple-700/20 shadow-sm hover:shadow mt-4 ${isTablet ? "col-span-2" : ""} w-full download-cv-mobile`}
                   onClick={() => {
                     setTimeout(() => setIsMenuOpen(false), 300);
                   }}

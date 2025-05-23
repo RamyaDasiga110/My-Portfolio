@@ -1,8 +1,11 @@
 
 import { GraduationCap, Calendar, MapPin } from "lucide-react";
 import { WavyBackground } from "./DecorativeElements";
+import { useResponsive } from "@/hooks/use-responsive";
 
 const Education = () => {
+  const { isTablet } = useResponsive();
+  
   return (
     <section id="education" className="py-20 bg-gradient-to-r from-white via-blue-50 to-white relative overflow-hidden">
       {/* Decorative elements */}
@@ -34,8 +37,8 @@ const Education = () => {
                   <GraduationCap size={24} className="text-white" />
                 </div>
                 
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 bg-gradient-to-r from-portfolioBlue to-purple-500 bg-clip-text text-transparent">
+                <div className={isTablet ? 'flex-1' : ''}>
+                  <h3 className={`text-xl font-bold text-gray-800 bg-gradient-to-r from-portfolioBlue to-purple-500 bg-clip-text text-transparent ${isTablet ? 'text-lg' : ''}`}>
                     Master of Science (M.S) in Data Science and Business Informatics
                   </h3>
                   
@@ -43,7 +46,7 @@ const Education = () => {
                     University of Pisa (UniPi)
                   </h4>
                   
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-2 text-gray-600">
+                  <div className={`flex flex-wrap items-center gap-x-4 gap-y-2 mt-2 text-gray-600 ${isTablet ? 'flex-row flex-wrap items-center' : ''}`}>
                     <div className="flex items-center gap-1">
                       <Calendar size={16} className="text-portfolioBlue" />
                       <span>November 2024 - Present</span>
@@ -95,7 +98,7 @@ const Education = () => {
                     Sai Vidya Institute of Technology (VTU)
                   </h4>
                   
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-2 text-gray-600">
+                  <div className={`flex flex-wrap items-center gap-x-4 gap-y-2 mt-2 text-gray-600 ${isTablet ? 'flex-row flex-wrap items-center' : ''}`}>
                     <div className="flex items-center gap-1">
                       <Calendar size={16} className="text-portfolioBlue" />
                       <span>August 2016 - August 2020</span>

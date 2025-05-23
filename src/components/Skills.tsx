@@ -2,12 +2,22 @@
 import { Code, Terminal, Database, Cpu } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { DiagonalLines } from "./DecorativeElements";
+import { useResponsive } from "@/hooks/use-responsive";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+
+interface SkillCategoryProps {
+  title: string;
+  skills: string[];
+  icon: React.ElementType;
+  delay?: string;
+  gradientFrom?: string;
+  gradientTo?: string;
+}
 
 const SkillCategory = ({ 
   title, 
@@ -16,49 +26,49 @@ const SkillCategory = ({
   delay = '0.2s',
   gradientFrom = "from-portfolioBlue",
   gradientTo = "to-purple-500"
-}: { 
-  title: string; 
-  skills: string[]; 
-  icon: React.ElementType;
-  delay?: string;
-  gradientFrom?: string;
-  gradientTo?: string;
-}) => (
-  <Card className="overflow-hidden border border-gray-200 transition-all duration-300 hover:shadow-lg group">
-    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white opacity-80"></div>
-    <DiagonalLines className="opacity-5" />
-    <CardContent className="relative z-10 p-6">
-      <div className="mb-6 flex items-center gap-3">
-        <div className={`p-3 rounded-md bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md transition-transform duration-300 group-hover:scale-110`}>
-          <Icon size={24} className="text-white" />
+}: SkillCategoryProps) => {
+  const { isTablet } = useResponsive();
+  
+  return (
+    <Card className="overflow-hidden border border-gray-200 transition-all duration-300 hover:shadow-lg group">
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white opacity-80"></div>
+      <DiagonalLines className="opacity-5" />
+      <CardContent className={`relative z-10 ${isTablet ? 'p-4' : 'p-6'}`}>
+        <div className="mb-6 flex items-center gap-3">
+          <div className={`${isTablet ? 'p-2' : 'p-3'} rounded-md bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md transition-transform duration-300 group-hover:scale-110`}>
+            <Icon size={isTablet ? 20 : 24} className="text-white" />
+          </div>
+          <h3 className={`${isTablet ? 'text-base' : 'text-lg'} font-bold text-gray-800 transition-colors group-hover:text-portfolioBlue`}>{title}</h3>
         </div>
-        <h3 className="text-lg font-bold text-gray-800 transition-colors group-hover:text-portfolioBlue">{title}</h3>
-      </div>
+        
       
-      <div className="flex flex-wrap gap-2">
-        {skills.map((skill, index) => (
-          <TooltipProvider key={skill}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <span 
-                  className="border-2 border-portfolioBlue bg-white px-3 py-1 text-sm font-medium text-gray-800 shadow-sm transition-all duration-300 hover:scale-105 hover:bg-portfolioBlue hover:text-white hover:shadow-md transform rounded-md"
-                  style={{ transitionDelay: `${index * 50}ms` }}
-                >
-                  {skill}
-                </span>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{skill}</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-        ))}
-      </div>
-    </CardContent>
-  </Card>
-);
+        <div className="flex flex-wrap gap-2">
+          {skills.map((skill, index) => (
+            <TooltipProvider key={skill}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <span 
+                    className={`border-2 border-portfolioBlue bg-white px-3 py-1 ${isTablet ? 'text-xs' : 'text-sm'} font-medium text-gray-800 shadow-sm transition-all duration-300 hover:scale-105 hover:bg-portfolioBlue hover:text-white hover:shadow-md transform rounded-md`}
+                    style={{ transitionDelay: `${index * 50}ms` }}
+                  >
+                    {skill}
+                  </span>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{skill}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
 
 const Skills = () => {
+  const { isTablet } = useResponsive();
+  
   const programmingSkills = [
     "C#", "ASP.NET (Entity Framework, MVC)", "JavaScript/JQuery", 
     "NodeJS", "ReactJS", "HTML5", "CSS3", "Tailwind CSS", "Typescript"
@@ -95,12 +105,12 @@ const Skills = () => {
       <div className="container mx-auto px-4 relative z-10">
         <h2 className="section-title mb-8 relative">
           Technical Skills
-        <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-purple-500 rounded-full"></div>
+          <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-portfolioBlue to-purple-500 rounded-full"></div>
         </h2>
       </div>
+      
       <div className="container mx-auto px-4"> 
-        
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
+        <div className={`mt-12 grid grid-cols-1 ${isTablet ? 'gap-4' : 'gap-6'} md:grid-cols-2 lg:grid-cols-2`}>
           <SkillCategory 
             title="Programming Languages & Frameworks" 
             skills={programmingSkills} 

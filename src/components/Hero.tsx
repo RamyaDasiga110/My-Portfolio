@@ -3,17 +3,20 @@ import { ArrowDown, Github, Linkedin, Mail, Phone, MapPin, Sparkle, Youtube } fr
 import { Button } from "@/components/ui/button";
 import { CreativeHeroBackground, ParallaxEffect } from "./DecorativeElements";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { useResponsive } from "@/hooks/use-responsive";
 
 const Hero = () => {
+  const { isTablet } = useResponsive();
+  
   return (
-    <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden">
+    <section id="home" className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden">
       {/* Creative background elements */}
       <CreativeHeroBackground />
       <ParallaxEffect />
       
       <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          <div className="md:col-span-7 animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
+          <div className={`md:col-span-7 ${isTablet ? 'md:col-span-12 text-left' : ''} animate-fade-in opacity-0`} style={{ animationDelay: '0.2s' }}>
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-400 to-portfolioBlue text-white rounded-full mb-4 shadow-md">
               <Sparkle size={18} className="text-white" />
               <span className="font-medium">Software Developer</span>
@@ -21,7 +24,7 @@ const Hero = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
               Ramya Shravani <span className="bg-gradient-to-r from-purple-600 to-portfolioBlue bg-clip-text text-transparent">Dasiga</span>
             </h1>
-            <p className="text-gray-700 mb-8 max-w-lg text-lg leading-relaxed">
+            <p className={`text-gray-700 mb-8 text-lg leading-relaxed ${isTablet ? 'max-w-2xl' : 'max-w-lg'}`}>
               Experienced software developer with expertise in C#, ASP.NET, and web technologies. 
               Also a content creator passionate about travel, lifestyle, and food.
             </p>
@@ -79,7 +82,7 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="md:col-span-5 flex justify-center animate-fade-in opacity-0" style={{ animationDelay: '0.4s' }}>
+          <div className={`md:col-span-5 ${isTablet ? 'md:col-span-12 mt-8' : ''} flex justify-center animate-fade-in opacity-0`} style={{ animationDelay: '0.4s' }}>
             <div className="relative animate-float">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-portfolioBlue opacity-20 rounded-full blur-md"></div>
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-purple-500 to-portfolioBlue p-1 shadow-xl">
