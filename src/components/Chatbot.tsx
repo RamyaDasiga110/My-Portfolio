@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
-import { MessageSquare, Send, X, ThumbsUp, ThumbsDown, Smile, AlertCircle, ExternalLink } from 'lucide-react';
+import { MessageSquare, Send, X, AlertCircle } from 'lucide-react';
 
+// Simple message type
 type Message = {
   type: 'user' | 'bot';
   text: string;
@@ -10,35 +11,19 @@ type Message = {
   isTyping?: boolean;
 };
 
-type ConversationContext = {
-  lastTopic: string;
-  mentionedSkills: string[];
-  mentionedProjects: string[];
-  mentionedEducation: boolean;
-  hasAskedName: boolean;
-  userName: string;
-  sentiment: 'positive' | 'neutral' | 'negative';
-  conversationCount: number;
-};
+// Helper function to generate random ID
+function generateId() {
+  return Math.random().toString(36).substring(2, 15);
+}
 
-const initialContext: ConversationContext = {
-  lastTopic: '',
-  mentionedSkills: [],
-  mentionedProjects: [],
-  mentionedEducation: false,
-  hasAskedName: false,
-  userName: '',
-  sentiment: 'neutral',
-  conversationCount: 0
-};
-
+// Initial welcome message
 const initialMessages: Message[] = [
   {
     type: 'bot',
-    text: "✨ Hello! I'm Ramya's digital sidekick! Want to explore her code wizardry, Autodesk adventures, Italian education journey, or project showcase? Let me be your guide through her tech universe!",
+    text: "👋 Hello! I'm Ramya's portfolio assistant. I can provide information about her professional experience at Autodesk, technical skills in C#, ASP.NET, JavaScript and more, education at University of Pisa and projects like the Real-time Weather Application. How can I help you?",
     id: generateId(),
     timestamp: new Date(),
-    suggestions: ['Tech powers', 'Work stories', 'Learning path', 'Cool projects']
+    suggestions: ['Technical skills', 'Work experience', 'Education', 'Projects']
   }
 ];
 

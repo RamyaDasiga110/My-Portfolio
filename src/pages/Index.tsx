@@ -9,6 +9,7 @@ import Achievements from "@/components/Achievements";
 import YouTube from "@/components/YouTube";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import SimpleChat from "@/components/SimpleChat";
 
 const Index = () => {
   return (
@@ -23,6 +24,7 @@ const Index = () => {
       <Achievements />
       <Contact />
       <Footer />
+      <SimpleChat />
     </div>
   );
 };
