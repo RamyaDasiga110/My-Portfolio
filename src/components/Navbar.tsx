@@ -11,7 +11,8 @@ import {
   Award, 
   Mail,
   FileDown,
-  GraduationCap
+  GraduationCap,
+  Languages // Add this import
 } from "lucide-react";
 
 const Navbar = () => {
@@ -42,6 +43,7 @@ const Navbar = () => {
     { name: "Skills", href: "#skills", icon: Code2 },
     { name: "Projects", href: "#projects", icon: FolderKanban },
     { name: "Education", href: "#education", icon: GraduationCap },
+    { name: "Languages", href: "#languages", icon: Languages }, // Add this line
     { name: "YouTube", href: "#youtube", icon: Youtube },
     { name: "Achievements", href: "#achievements", icon: Award },
     { name: "Contact", href: "#contact", icon: Mail },
