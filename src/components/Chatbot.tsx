@@ -20,10 +20,10 @@ function generateId() {
 const initialMessages: Message[] = [
   {
     type: 'bot',
-    text: "👋 Hello! I'm Ramya's portfolio assistant. I can provide information about her professional experience at Autodesk, technical skills in C#, ASP.NET, JavaScript and more, education at University of Pisa and projects like the Real-time Weather Application. How can I help you?",
+    text: "👋 Hello! I'm Ramya's portfolio assistant. I can provide information about her professional experience at Autodesk, technical skills in C#, ASP.NET, JavaScript and more, education at University of Pisa, languages spoken, and projects like the Real-time Weather Application. How can I help you?",
     id: generateId(),
     timestamp: new Date(),
-    suggestions: ['Technical skills', 'Work experience', 'Education', 'Projects']
+    suggestions: ['Technical skills', 'Work experience', 'Education', 'Languages', 'Projects']
   }
 ];
 
@@ -155,6 +155,40 @@ const education = [
   }
 ];
 
+// Languages spoken
+const languages = [
+  {
+    name: "Telugu",
+    level: "Native",
+    description: "Mother tongue",
+    proficiency: "100%"
+  },
+  {
+    name: "English",
+    level: "Professional",
+    description: "C1/C2 level",
+    proficiency: "95%"
+  },
+  {
+    name: "Kannada",
+    level: "Fluent",
+    description: "Near-native proficiency",
+    proficiency: "95%"
+  },
+  {
+    name: "Hindi",
+    level: "Conversational",
+    description: "Strong speaking ability",
+    proficiency: "80%"
+  },
+  {
+    name: "Italian",
+    level: "Beginner",
+    description: "A2 level",
+    proficiency: "30%"
+  }
+];
+
 // Define response categories
 const botResponses = {
   greetings: {
@@ -202,6 +236,22 @@ const botResponses = {
     aboutMe: "🔥 Ramya's passion equation: code + creativity + curiosity! Bug hunter by day, tech explorer by night. When not optimizing databases, she's hiking Pisa's trails or tinkering with open-source projects.",
     strengths: "💪 Ramya's superpowers: Database whispering, UI enchantment, code optimization, and technology shapeshifting. Her secret weapon? Turning complex problems into elegant solutions!",
     interests: "🌱 Beyond the keyboard: Ramya visualizes data stories, tames machine learning algorithms, and crafts interfaces that feel like magic. Currently: blending business and data science at Pisa!"
+  },
+  languages: {
+    all: "🌎 Ramya's Language Profile:\n" +
+         "🔸 Telugu - Mother tongue (Native)\n" +
+         "🔸 English - Professional working proficiency (C1/C2)\n" +
+         "🔸 Kannada - Near-native proficiency\n" +
+         "🔸 Hindi - Strong conversational skills\n" +
+         "🔸 Italian - Beginner (A2)\n" +
+         "Would you like to know more about any specific language?",
+    details: {
+      telugu: "Telugu is Ramya's mother tongue, giving her native-level mastery in both verbal and written communication.",
+      english: "Ramya has professional working proficiency (C1/C2) in English, using it extensively in her technical work and academic pursuits.",
+      kannada: "Having lived in Bangalore, Ramya developed near-native proficiency in Kannada, comfortable in both professional and casual settings.",
+      hindi: "Ramya has strong conversational skills in Hindi, enabling effective communication across India.",
+      italian: "Currently at A2 level in Italian, Ramya is developing her language skills while studying in Pisa, Italy."
+    }
   }
 };
 
@@ -550,6 +600,28 @@ export const Chatbot = () => {
       return { 
         text: botResponses.cv,
         suggestions: ['Experience highlights', 'Education summary', 'Technical skills']
+      };
+    }
+    
+    // Check for language-related queries
+    if (lowerInput.includes('language') || lowerInput.includes('speak') || 
+        lowerInput.includes('communication') || lowerInput.includes('multilingual')) {
+      newContext.lastTopic = 'languages';
+      
+      // Check for specific language queries
+      const specificLanguages = ['telugu', 'english', 'kannada', 'hindi', 'italian'];
+      const matchedLanguage = specificLanguages.find(lang => lowerInput.includes(lang));
+      
+      if (matchedLanguage) {
+        return {
+          text: botResponses.languages.details[matchedLanguage as keyof typeof botResponses.languages.details],
+          suggestions: ['Other languages', 'Professional communication', 'Studies in Italy']
+        };
+      }
+      
+      return {
+        text: botResponses.languages.all,
+        suggestions: ['Telugu proficiency', 'English level', 'Italian studies', 'Communication skills']
       };
     }
     

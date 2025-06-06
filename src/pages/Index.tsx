@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Experience from "@/components/Experience";
@@ -10,6 +9,7 @@ import YouTube from "@/components/YouTube";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SimpleChat from "@/components/SimpleChat";
+import Languages from "@/components/Languages";
 
 const Index = () => {
   return (
@@ -20,6 +20,7 @@ const Index = () => {
       <Skills />
       <Projects />
       <Education />
+      <Languages /> {/* Moved here after Education */}
       <YouTube />
       <Achievements />
       <Contact />

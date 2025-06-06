@@ -1,4 +1,3 @@
-
 import { Award, ExternalLink } from "lucide-react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -62,6 +61,17 @@ const Achievements = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
           <Achievement 
+            title="AI for Small Businesses"
+            organization="Founderz Business School & Microsoft"
+            year="2025"
+            description="Completed AI business transformation training and pitched an innovative AI Learning Assistant concept, leveraging Prompt Engineering and AI capabilities for personalized education."
+            link="https://learn.founderz.com/certificado/ai-for-small-businesses/87f4a4cd-f9cb-4b0b-bfac-5432be01b9b7"
+            delay="0.1s"
+            gradientFrom="from-violet-600"
+            gradientTo="to-indigo-600"
+          />
+
+          <Achievement 
             title="Mastering MERN Stack"
             organization="Udemy"
             year="2025"
@@ -80,6 +90,17 @@ const Achievements = () => {
             delay="0.3s"
             gradientFrom="from-blue-500"
             gradientTo="to-indigo-500"
+          />
+
+          <Achievement 
+            title="Introduction to Artificial Intelligence"
+            organization="Founderz Business School & Microsoft"
+            year="2024"
+            description="Completed comprehensive training in AI fundamentals, exploring core concepts and practical applications of artificial intelligence."
+            link="https://learn.founderz.com/certificado/ai-skills-4-all-en/87f4a4cd-f9cb-4b0b-bfac-5432be01b9b7"
+            delay="0.4s"
+            gradientFrom="from-violet-500"
+            gradientTo="to-purple-600"
           />
           
           <Achievement 
